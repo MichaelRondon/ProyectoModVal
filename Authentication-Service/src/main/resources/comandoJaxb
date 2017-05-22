@@ -1,0 +1,1 @@
+"C:\Program Files\Java\jdk1.8.0_121\bin\xjc.exe" "C:\Users\acost\OneDrive\Documentos\NetBeansProjects\ProyectoModVal\Authentication-Service\src\main\resources\authentication-req.xsd" -d "C:\Users\acost\OneDrive\Documentos\NetBeansProjects\ProyectoModVal\Authentication-Service\src\main\java" -p edu.puj.aes.modyval.authentication.service.artifacts
