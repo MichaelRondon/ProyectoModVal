@@ -11,8 +11,6 @@ import edu.puj.aes.modyval.dispatcher.service.artifacts.ReferenciaFactura;
 import edu.puj.aes.modyval.dispatcher.service.artifacts.ResultadoConsulta;
 import java.net.MalformedURLException;
 import java.net.URL;
-import javax.xml.namespace.QName;
-import javax.xml.ws.Service;
 /**
  *
  * @author acost
