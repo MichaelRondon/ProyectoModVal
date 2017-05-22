@@ -21,6 +21,7 @@ public class ConsultarFactura implements IConsultarFactura {
     @EJB
     private IConsultarFactura consultarFactura;
 
+    @Override
     public ConsultarFacturaResp consultar(ConsultarFacturaReq input) {
         return consultarFactura.consultar(input);
     }

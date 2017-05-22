@@ -21,29 +21,30 @@ import javax.ejb.Stateless;
  *
  * @author acost
  */
-
 @Stateless
 public class ConsultarFacturaServiceImpl implements ConsultarFacturaService {
 
+    @Override
     public ConsultarFacturaResp consultar(ConsultarFacturaReq consultarFacturaReq) {
         PagosServiceService pagosServiceService;
+        ConsultarFacturaResp consultarFacturaResp = new ConsultarFacturaResp();
         try {
             pagosServiceService = new PagosServiceService(new URL(ConsultarFacturaService.WSDL_URI));
             ReferenciaFactura referenciaFactura = new ReferenciaFactura();
             referenciaFactura.setReferenciaFactura(consultarFacturaReq.getIdFactura());
             ResultadoConsulta resultadoConsulta = pagosServiceService.getPagosServicePort().cosultar(referenciaFactura);
             System.out.println("cosultar: " + resultadoConsulta.getTotalPagar());
-            ConsultarFacturaResp consultarFacturaResp = new ConsultarFacturaResp();
             consultarFacturaResp.setValorFactura(resultadoConsulta.getTotalPagar());
             consultarFacturaResp.setIdFactura(resultadoConsulta.getReferenciaFactura().getReferenciaFactura());
             return consultarFacturaResp;
         } catch (MalformedURLException ex) {
-            Logger.getLogger(ConsultarFacturaServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
-            throw new ConsultarFacturaException(
-                    String.format("Error realizando la consulta de factura con los datos endpoint: %s, factura: %s",
-                            ConsultarFacturaService.WSDL_URI,
-                            consultarFacturaReq.getIdFactura()),
-                     ex);
+            String mensajeError = String.format("Error realizando la consulta de factura con los datos endpoint: %s, factura: %s, mensaje: %s",
+                    ConsultarFacturaService.WSDL_URI,
+                    consultarFacturaReq.getIdFactura(),
+                    ex.getMessage());
+            Logger.getLogger(ConsultarFacturaServiceImpl.class.getName()).log(Level.SEVERE, mensajeError, ex);
+            consultarFacturaResp.setMensajeError(mensajeError);
+            return consultarFacturaResp;
         }
     }
 
