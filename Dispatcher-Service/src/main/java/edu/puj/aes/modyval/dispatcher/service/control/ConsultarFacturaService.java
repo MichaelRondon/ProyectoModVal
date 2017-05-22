@@ -15,5 +15,8 @@ import javax.ejb.Local;
  */
 @Local
 public interface ConsultarFacturaService {
+    
+    public static final String WSDL_URI = "http://localhost:7070/w1-soap-svr/PagosServiceService";
+    
     ConsultarFacturaResp consultar(ConsultarFacturaReq authenticationReq);
 }

@@ -1,3 +1,11 @@
+//
+// Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.2.8-b130911.1802 
+// Visite <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
+// Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
+// Generado el: 2017.05.22 a las 11:42:13 AM COT 
+//
+
+
 package edu.puj.aes.modyval.dispatcher.service.artifacts;
 
 import javax.xml.bind.JAXBElement;
@@ -24,7 +32,6 @@ import javax.xml.namespace.QName;
 public class ObjectFactory {
 
     private final static QName _ConsultarFacturaResp_QNAME = new QName("http://www.modval.aes.puj.edu.co/consulta/schemas", "ConsultarFacturaResp");
-    private final static QName _ConsultarFacturaBaseReq_QNAME = new QName("http://www.modval.aes.puj.edu.co/consulta/schemas", "ConsultarFacturaBaseReq");
     private final static QName _ConsultarFacturaReq_QNAME = new QName("http://www.modval.aes.puj.edu.co/consulta/schemas", "ConsultarFacturaReq");
 
     /**
@@ -32,14 +39,6 @@ public class ObjectFactory {
      * 
      */
     public ObjectFactory() {
-    }
-
-    /**
-     * Create an instance of {@link ConsultarFacturaBaseReq }
-     * 
-     */
-    public ConsultarFacturaBaseReq createConsultarFacturaBaseReq() {
-        return new ConsultarFacturaBaseReq();
     }
 
     /**
@@ -65,15 +64,6 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://www.modval.aes.puj.edu.co/consulta/schemas", name = "ConsultarFacturaResp")
     public JAXBElement<ConsultarFacturaResp> createConsultarFacturaResp(ConsultarFacturaResp value) {
         return new JAXBElement<ConsultarFacturaResp>(_ConsultarFacturaResp_QNAME, ConsultarFacturaResp.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ConsultarFacturaBaseReq }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://www.modval.aes.puj.edu.co/consulta/schemas", name = "ConsultarFacturaBaseReq")
-    public JAXBElement<ConsultarFacturaBaseReq> createConsultarFacturaBaseReq(ConsultarFacturaBaseReq value) {
-        return new JAXBElement<ConsultarFacturaBaseReq>(_ConsultarFacturaBaseReq_QNAME, ConsultarFacturaBaseReq.class, null, value);
     }
 
     /**

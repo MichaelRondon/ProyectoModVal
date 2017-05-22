@@ -12,6 +12,8 @@
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
     
     <dependencies>
@@ -44,7 +46,7 @@
                             <wsdlFiles>
                                 <wsdlFile>192.168.99.100_7070/w1-soap-svr/PagosServiceService.wsdl</wsdlFile>
                             </wsdlFiles>
-                            <packageName>edu.puj.aes.modyval.dispatcher.service.artifacts</packageName>
+                            <packageName>edu.puj.aes.modyval.dispatcher.service.artifacts.wsdl</packageName>
                             <vmArgs>
                                 <vmArg>-Djavax.xml.accessExternalSchema=all</vmArg>
                             </vmArgs>
