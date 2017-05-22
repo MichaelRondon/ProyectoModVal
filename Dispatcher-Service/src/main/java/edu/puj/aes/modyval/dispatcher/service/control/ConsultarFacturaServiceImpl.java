@@ -10,7 +10,6 @@ import edu.puj.aes.modyval.dispatcher.service.artifacts.ConsultarFacturaResp;
 import edu.puj.aes.modyval.dispatcher.service.artifacts.wsdl.PagosServiceService;
 import edu.puj.aes.modyval.dispatcher.service.artifacts.wsdl.ReferenciaFactura;
 import edu.puj.aes.modyval.dispatcher.service.artifacts.wsdl.ResultadoConsulta;
-import edu.puj.aes.modyval.dispatcher.service.exception.ConsultarFacturaException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.logging.Level;
