@@ -30,4 +30,8 @@
             <scope>provided</scope>
         </dependency>
     </dependencies>
+
+    <build>
+        <finalName>consultar-pago-service</finalName>
+    </build>
 </project>
