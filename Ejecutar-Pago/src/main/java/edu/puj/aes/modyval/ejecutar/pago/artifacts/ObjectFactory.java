@@ -1,11 +1,3 @@
-//
-// Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.2.8-b130911.1802 
-// Visite <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
-// Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2017.05.23 a las 12:21:24 PM COT 
-//
-
-
 package edu.puj.aes.modyval.ejecutar.pago.artifacts;
 
 import javax.xml.bind.JAXBElement;
@@ -31,15 +23,28 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
+    private final static QName _ConsultarSaldoReq_QNAME = new QName("http://www.modval.aes.puj.edu.co/consulta/schemas", "ConsultarSaldoReq");
     private final static QName _ConsultarFacturaResp_QNAME = new QName("http://www.modval.aes.puj.edu.co/consulta/schemas", "ConsultarFacturaResp");
+    private final static QName _ConsultarCuentasResp_QNAME = new QName("http://www.modval.aes.puj.edu.co/consulta/schemas", "ConsultarCuentasResp");
+    private final static QName _ConsultarCuentaReq_QNAME = new QName("http://www.modval.aes.puj.edu.co/consulta/schemas", "ConsultarCuentaReq");
     private final static QName _EjecutarPagoReq_QNAME = new QName("http://www.modval.aes.puj.edu.co/consulta/schemas", "EjecutarPagoReq");
+    private final static QName _ModificarCuentaReq_QNAME = new QName("http://www.modval.aes.puj.edu.co/consulta/schemas", "ModificarCuentaReq");
     private final static QName _ConsultarFacturaReq_QNAME = new QName("http://www.modval.aes.puj.edu.co/consulta/schemas", "ConsultarFacturaReq");
+    private final static QName _ConsultarSaldoResp_QNAME = new QName("http://www.modval.aes.puj.edu.co/consulta/schemas", "ConsultarSaldoResp");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: edu.puj.aes.modyval.ejecutar.pago.artifacts
      * 
      */
     public ObjectFactory() {
+    }
+
+    /**
+     * Create an instance of {@link ConsultarSaldoResp }
+     * 
+     */
+    public ConsultarSaldoResp createConsultarSaldoResp() {
+        return new ConsultarSaldoResp();
     }
 
     /**
@@ -59,11 +64,60 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link ModificarCuentaReq }
+     * 
+     */
+    public ModificarCuentaReq createModificarCuentaReq() {
+        return new ModificarCuentaReq();
+    }
+
+    /**
+     * Create an instance of {@link ConsultarCuentaReq }
+     * 
+     */
+    public ConsultarCuentaReq createConsultarCuentaReq() {
+        return new ConsultarCuentaReq();
+    }
+
+    /**
      * Create an instance of {@link ConsultarFacturaResp }
      * 
      */
     public ConsultarFacturaResp createConsultarFacturaResp() {
         return new ConsultarFacturaResp();
+    }
+
+    /**
+     * Create an instance of {@link ConsultarCuentasResp }
+     * 
+     */
+    public ConsultarCuentasResp createConsultarCuentasResp() {
+        return new ConsultarCuentasResp();
+    }
+
+    /**
+     * Create an instance of {@link ConsultarSaldoReq }
+     * 
+     */
+    public ConsultarSaldoReq createConsultarSaldoReq() {
+        return new ConsultarSaldoReq();
+    }
+
+    /**
+     * Create an instance of {@link Cuentas }
+     * 
+     */
+    public Cuentas createCuentas() {
+        return new Cuentas();
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ConsultarSaldoReq }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://www.modval.aes.puj.edu.co/consulta/schemas", name = "ConsultarSaldoReq")
+    public JAXBElement<ConsultarSaldoReq> createConsultarSaldoReq(ConsultarSaldoReq value) {
+        return new JAXBElement<ConsultarSaldoReq>(_ConsultarSaldoReq_QNAME, ConsultarSaldoReq.class, null, value);
     }
 
     /**
@@ -76,6 +130,24 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ConsultarCuentasResp }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://www.modval.aes.puj.edu.co/consulta/schemas", name = "ConsultarCuentasResp")
+    public JAXBElement<ConsultarCuentasResp> createConsultarCuentasResp(ConsultarCuentasResp value) {
+        return new JAXBElement<ConsultarCuentasResp>(_ConsultarCuentasResp_QNAME, ConsultarCuentasResp.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ConsultarCuentaReq }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://www.modval.aes.puj.edu.co/consulta/schemas", name = "ConsultarCuentaReq")
+    public JAXBElement<ConsultarCuentaReq> createConsultarCuentaReq(ConsultarCuentaReq value) {
+        return new JAXBElement<ConsultarCuentaReq>(_ConsultarCuentaReq_QNAME, ConsultarCuentaReq.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link EjecutarPagoReq }{@code >}}
      * 
      */
@@ -85,12 +157,30 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ModificarCuentaReq }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://www.modval.aes.puj.edu.co/consulta/schemas", name = "ModificarCuentaReq")
+    public JAXBElement<ModificarCuentaReq> createModificarCuentaReq(ModificarCuentaReq value) {
+        return new JAXBElement<ModificarCuentaReq>(_ModificarCuentaReq_QNAME, ModificarCuentaReq.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link ConsultarFacturaReq }{@code >}}
      * 
      */
     @XmlElementDecl(namespace = "http://www.modval.aes.puj.edu.co/consulta/schemas", name = "ConsultarFacturaReq")
     public JAXBElement<ConsultarFacturaReq> createConsultarFacturaReq(ConsultarFacturaReq value) {
         return new JAXBElement<ConsultarFacturaReq>(_ConsultarFacturaReq_QNAME, ConsultarFacturaReq.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ConsultarSaldoResp }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://www.modval.aes.puj.edu.co/consulta/schemas", name = "ConsultarSaldoResp")
+    public JAXBElement<ConsultarSaldoResp> createConsultarSaldoResp(ConsultarSaldoResp value) {
+        return new JAXBElement<ConsultarSaldoResp>(_ConsultarSaldoResp_QNAME, ConsultarSaldoResp.class, null, value);
     }
 
 }

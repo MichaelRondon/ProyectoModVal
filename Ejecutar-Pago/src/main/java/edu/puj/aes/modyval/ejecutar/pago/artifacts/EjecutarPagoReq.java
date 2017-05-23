@@ -1,11 +1,3 @@
-//
-// Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.2.8-b130911.1802 
-// Visite <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
-// Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2017.05.23 a las 12:21:24 PM COT 
-//
-
-
 package edu.puj.aes.modyval.ejecutar.pago.artifacts;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -25,7 +17,8 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
  *         &lt;element name="factura" type="{http://www.modval.aes.puj.edu.co/consulta/schemas}ConsultarFacturaReq"/>
- *         &lt;element name="idFactura" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="cuenta" type="{http://www.modval.aes.puj.edu.co/consulta/schemas}ConsultarCuentaReq"/>
+ *         &lt;element name="valor" type="{http://www.w3.org/2001/XMLSchema}double"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -37,14 +30,16 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "EjecutarPagoReq", propOrder = {
     "factura",
-    "idFactura"
+    "cuenta",
+    "valor"
 })
 public class EjecutarPagoReq {
 
     @XmlElement(required = true)
     protected ConsultarFacturaReq factura;
     @XmlElement(required = true)
-    protected String idFactura;
+    protected ConsultarCuentaReq cuenta;
+    protected double valor;
 
     /**
      * Obtiene el valor de la propiedad factura.
@@ -71,27 +66,43 @@ public class EjecutarPagoReq {
     }
 
     /**
-     * Obtiene el valor de la propiedad idFactura.
+     * Obtiene el valor de la propiedad cuenta.
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link ConsultarCuentaReq }
      *     
      */
-    public String getIdFactura() {
-        return idFactura;
+    public ConsultarCuentaReq getCuenta() {
+        return cuenta;
     }
 
     /**
-     * Define el valor de la propiedad idFactura.
+     * Define el valor de la propiedad cuenta.
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link ConsultarCuentaReq }
      *     
      */
-    public void setIdFactura(String value) {
-        this.idFactura = value;
+    public void setCuenta(ConsultarCuentaReq value) {
+        this.cuenta = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad valor.
+     * 
+     */
+    public double getValor() {
+        return valor;
+    }
+
+    /**
+     * Define el valor de la propiedad valor.
+     * 
+     */
+    public void setValor(double value) {
+        this.valor = value;
     }
 
 }
