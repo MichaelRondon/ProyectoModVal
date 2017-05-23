@@ -85,18 +85,28 @@ public class SaldoServiceImpl implements SaldoService {
         String usuarioId = modificarCuentaReq.getUsuarioId();
         String numero = modificarCuentaReq.getNumero();
         ConsultarCuentasResp consultarCuentasResp = consultarCuenta(usuarioId, numero);
-        if ((modificarCuentaReq.getDescuento() > 0D)) {
+        double nuevoSaldo = consultarCuentasResp.getSaldo();
+        if (modificarCuentaReq.getDescuento() > 0D) {
             if (consultarCuentasResp.getSaldo() < modificarCuentaReq.getDescuento()) {
                 consultarCuentasResp.setMensajeError(String.format("Saldo insuficiente: %f", consultarCuentasResp.getSaldo()));
                 return consultarCuentasResp;
             }
-//            BigDecimal descontar = this.descontar(usuarioId, numero, new BigDecimal(consultarCuentasResp.getSaldo()));
-//            consultarCuentasResp.
-            
+            nuevoSaldo = nuevoSaldo - modificarCuentaReq.getDescuento();
         }
+        if (modificarCuentaReq.getAumento() > 0D) {
+            nuevoSaldo = nuevoSaldo + modificarCuentaReq.getAumento();
+        }
+        asignarNuevoSaldo(usuarioId, numero, nuevoSaldo);
+        consultarCuentasResp.setSaldo(nuevoSaldo);
         return consultarCuentasResp;
     }
-    
+
+    private synchronized void asignarNuevoSaldo(String usuarioId, String numero, double nuevoSaldo) {
+        Map<String, BigDecimal> cuentas = MAPA_CUENTAS_USUARIOS.get(usuarioId);
+        if (cuentas != null) {
+            cuentas.put(numero, new BigDecimal(nuevoSaldo));
+        }
+    }
 
     private ConsultarCuentasResp consultarCuenta(String usuarioId, String numero) {
         ConsultarCuentasResp consultarCuentasResp = new ConsultarCuentasResp();

@@ -1,0 +1,31 @@
+version: '3'
+services:
+  consultar_pago_service:
+    build: "Consultar-Pago-Service/."
+    ports:
+      - "7073:8080"
+    networks: 
+      - "service-compose-net"
+  dispatcher_service:
+    build: "Dispatcher-Service/."
+    ports:
+      - "7072:8080"
+    networks: 
+      - "service-compose-net"
+    depends_on:
+      - consultar_pago_service
+  authentication_service:
+    build: "Authentication-Service/."
+    ports:
+      - "7071:8080"
+    networks: 
+      - "service-compose-net"
+  saldos_service:
+    build: "Saldos-Service/."
+    ports:
+      - "7074:8080"
+    networks: 
+      - "service-compose-net"
+networks:
+  service-compose-net:
+    driver: bridge

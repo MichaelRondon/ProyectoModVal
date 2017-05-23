@@ -7,6 +7,8 @@ package edu.puj.aes.modyval.dispatcher.service.control;
 
 import edu.puj.aes.modyval.dispatcher.service.artifacts.ConsultarFacturaReq;
 import edu.puj.aes.modyval.dispatcher.service.artifacts.ConsultarFacturaResp;
+import edu.puj.aes.modyval.dispatcher.service.artifacts.rest.Factura;
+import edu.puj.aes.modyval.dispatcher.service.artifacts.rest.Resultado;
 import javax.ejb.Local;
 
 /**
@@ -14,10 +16,12 @@ import javax.ejb.Local;
  * @author acost
  */
 @Local
-public interface ConsultarFacturaService {
-    
-    public static final String WSDL_URI = "http://192.168.99.100:7070/w1-soap-svr/PagosServiceService?wsdl";
-//    public static final String WSDL_URI = "http://localhost:7070/w1-soap-svr/PagosServiceService";
+public interface ConsultarFacturaRestService {
+    public static final String ENDPOINT_URL = "http://192.168.99.100:9898/servicios/pagos/v1/payments/";
     
     ConsultarFacturaResp consultar(ConsultarFacturaReq consultarFacturaReq);
+    
+    Resultado pagar(String idFactura, double valorFactura);
+    
+    Resultado compensar(String idFactura);
 }

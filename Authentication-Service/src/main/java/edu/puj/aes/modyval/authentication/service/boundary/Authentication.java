@@ -28,10 +28,7 @@ public class Authentication implements AuthenticationInterface {
     
     @Override
     public AuthenticationResp autenticar(AuthenticationReq input) {
-        LOGGER.debug("Petición: {}", input);
-        System.out.println("autenticar"+input);
-        AuthenticationResp authenticationResp = new AuthenticationResp();
-        authenticationResp.setUsuarioId("hhggg");
+        LOGGER.info("AuthenticationService: {}", input);
         return authenticationServiceImpl.autenticar(input);
     }
     

@@ -11,7 +11,7 @@ import javax.xml.bind.annotation.XmlSeeAlso;
  *
  * @author acost
  */
-@WebService(name = "DispatcherInterface", targetNamespace = "http://www.modval.aes.puj.edu.co/consulta/schemas")
+@WebService(name = "IConsultarFactura", targetNamespace = "http://www.modval.aes.puj.edu.co/consulta/schemas")
 @SOAPBinding(parameterStyle = SOAPBinding.ParameterStyle.BARE)
 @XmlSeeAlso({
     ObjectFactory.class
