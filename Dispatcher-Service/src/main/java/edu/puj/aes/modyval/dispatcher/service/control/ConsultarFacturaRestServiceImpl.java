@@ -12,7 +12,6 @@ import edu.puj.aes.modyval.dispatcher.service.artifacts.ConsultarFacturaReq;
 import edu.puj.aes.modyval.dispatcher.service.artifacts.ConsultarFacturaResp;
 import edu.puj.aes.modyval.dispatcher.service.artifacts.EjecutarPagoReq;
 import edu.puj.aes.modyval.dispatcher.service.artifacts.rest.Factura;
-import edu.puj.aes.modyval.dispatcher.service.artifacts.wsdl.ReferenciaFactura;
 import edu.puj.aes.modyval.dispatcher.service.artifacts.wsdl.Resultado;
 import edu.puj.aes.modyval.dispatcher.service.exception.ConsultarFacturaException;
 import javax.ejb.Stateless;

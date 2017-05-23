@@ -15,5 +15,8 @@ Any value defined here will override the pom.xml file value but is only applicab
 -->
         <org-netbeans-modules-maven-j2ee.netbeans_2e_hint_2e_j2eeVersion>1.7-web</org-netbeans-modules-maven-j2ee.netbeans_2e_hint_2e_j2eeVersion>
         <org-netbeans-modules-maven-j2ee.netbeans_2e_hint_2e_deploy_2e_server>gfv3ee6</org-netbeans-modules-maven-j2ee.netbeans_2e_hint_2e_deploy_2e_server>
+        <org-netbeans-modules-maven-jaxws._5f_C_5f_ConsultarConvenioService>http://localhost:8080/Consultar-Pago-Service/ConsultarConvenioService?wsdl</org-netbeans-modules-maven-jaxws._5f_C_5f_ConsultarConvenioService>
+        <org-netbeans-modules-maven-jaxws._5f_C_5f_ConsultarFacturaService>http://localhost:8080/Dispatcher-Service/ConsultarFacturaService?wsdl</org-netbeans-modules-maven-jaxws._5f_C_5f_ConsultarFacturaService>
+        <org-netbeans-modules-maven-jaxws._5f_C_5f_SaldosService>http://localhost:8080/Saldos-Service/SaldosService?wsdl</org-netbeans-modules-maven-jaxws._5f_C_5f_SaldosService>
     </properties>
 </project-shared-configuration>

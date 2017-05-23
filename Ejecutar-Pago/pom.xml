@@ -52,6 +52,16 @@
                 <version>2.3</version>
                 <configuration>
                     <failOnMissingWebXml>false</failOnMissingWebXml>
+                    <webResources>
+                        <resource>
+                            <directory>src</directory>
+                            <targetPath>WEB-INF</targetPath>
+                            <includes>
+                                <include>jax-ws-catalog.xml</include>
+                                <include>wsdl/**</include>
+                            </includes>
+                        </resource>
+                    </webResources>
                 </configuration>
             </plugin>
             <plugin>
@@ -78,6 +88,81 @@
                         </configuration>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.jvnet.jax-ws-commons</groupId>
+                <artifactId>jaxws-maven-plugin</artifactId>
+                <version>2.3</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>wsimport</goal>
+                        </goals>
+                        <configuration>
+                            <wsdlFiles>
+                                <wsdlFile>localhost_8080/Consultar-Pago-Service/ConsultarConvenioService.wsdl</wsdlFile>
+                            </wsdlFiles>
+                            <packageName>edu.puj.aes.modyval.ejecutar.pago.artifacts.consulta.wsdl</packageName>
+                            <vmArgs>
+                                <vmArg>-Djavax.xml.accessExternalSchema=all</vmArg>
+                            </vmArgs>
+                            <wsdlLocation>http://localhost:8080/Consultar-Pago-Service/ConsultarConvenioService?wsdl</wsdlLocation>
+                            <staleFile>${project.build.directory}/jaxws/stale/ConsultarConvenioService.stale</staleFile>
+                        </configuration>
+                        <id>wsimport-generate-ConsultarConvenioService</id>
+                        <phase>generate-sources</phase>
+                    </execution>
+                    <execution>
+                        <goals>
+                            <goal>wsimport</goal>
+                        </goals>
+                        <configuration>
+                            <wsdlFiles>
+                                <wsdlFile>localhost_8080/Dispatcher-Service/ConsultarFacturaService.wsdl</wsdlFile>
+                            </wsdlFiles>
+                            <packageName>edu.puj.aes.modyval.ejecutar.pago.artifacts.dispatcher.wsdl</packageName>
+                            <vmArgs>
+                                <vmArg>-Djavax.xml.accessExternalSchema=all</vmArg>
+                            </vmArgs>
+                            <wsdlLocation>http://localhost:8080/Dispatcher-Service/ConsultarFacturaService?wsdl</wsdlLocation>
+                            <staleFile>${project.build.directory}/jaxws/stale/ConsultarFacturaService.stale</staleFile>
+                        </configuration>
+                        <id>wsimport-generate-ConsultarFacturaService</id>
+                        <phase>generate-sources</phase>
+                    </execution>
+                    <execution>
+                        <goals>
+                            <goal>wsimport</goal>
+                        </goals>
+                        <configuration>
+                            <wsdlFiles>
+                                <wsdlFile>localhost_8080/Saldos-Service/SaldosService.wsdl</wsdlFile>
+                            </wsdlFiles>
+                            <packageName>edu.puj.aes.modyval.ejecutar.pago.artifacts.saldos.wsdl</packageName>
+                            <vmArgs>
+                                <vmArg>-Djavax.xml.accessExternalSchema=all</vmArg>
+                            </vmArgs>
+                            <wsdlLocation>http://localhost:8080/Saldos-Service/SaldosService?wsdl</wsdlLocation>
+                            <staleFile>${project.build.directory}/jaxws/stale/SaldosService.stale</staleFile>
+                        </configuration>
+                        <id>wsimport-generate-SaldosService</id>
+                        <phase>generate-sources</phase>
+                    </execution>
+                </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>javax.xml</groupId>
+                        <artifactId>webservices-api</artifactId>
+                        <version>2.0</version>
+                    </dependency>
+                </dependencies>
+                <configuration>
+                    <sourceDestDir>${project.build.directory}/generated-sources/jaxws-wsimport</sourceDestDir>
+                    <xnocompile>true</xnocompile>
+                    <verbose>true</verbose>
+                    <extension>true</extension>
+                    <catalog>${basedir}/src/jax-ws-catalog.xml</catalog>
+                </configuration>
             </plugin>
         </plugins>
         <finalName>ejecutar-pago-service</finalName>
