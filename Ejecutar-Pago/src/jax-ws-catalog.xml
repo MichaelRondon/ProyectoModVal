@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://localhost:8080/Consultar-Pago-Service/ConsultarConvenioService?wsdl" uri="wsdl/localhost_8080/Consultar-Pago-Service/ConsultarConvenioService.wsdl"/>
+    <system systemId="http://localhost:8080/Consultar-Pago-Service/ConsultarConvenioService?wsdl=1" uri="wsdl/localhost_8080/Consultar-Pago-Service/ConsultarConvenioService.wsdl_1.wsdl"/>
+    <system systemId="http://localhost:8080/Consultar-Pago-Service/ConsultarConvenioService?xsd=1" uri="wsdl/localhost_8080/Consultar-Pago-Service/ConsultarConvenioService.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/Dispatcher-Service/ConsultarFacturaService?wsdl" uri="wsdl/localhost_8080/Dispatcher-Service/ConsultarFacturaService.wsdl"/>
+    <system systemId="http://localhost:8080/Dispatcher-Service/ConsultarFacturaService?wsdl=1" uri="wsdl/localhost_8080/Dispatcher-Service/ConsultarFacturaService.wsdl_1.wsdl"/>
+    <system systemId="http://localhost:8080/Dispatcher-Service/ConsultarFacturaService?xsd=1" uri="wsdl/localhost_8080/Dispatcher-Service/ConsultarFacturaService.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/Saldos-Service/SaldosService?wsdl" uri="wsdl/localhost_8080/Saldos-Service/SaldosService.wsdl"/>
+    <system systemId="http://localhost:8080/Saldos-Service/SaldosService?wsdl=1" uri="wsdl/localhost_8080/Saldos-Service/SaldosService.wsdl_1.wsdl"/>
+    <system systemId="http://localhost:8080/Saldos-Service/SaldosService?xsd=1" uri="wsdl/localhost_8080/Saldos-Service/SaldosService.xsd_1.xsd"/>
+</catalog>

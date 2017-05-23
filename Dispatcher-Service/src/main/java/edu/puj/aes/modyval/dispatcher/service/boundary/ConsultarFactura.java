@@ -7,8 +7,8 @@ package edu.puj.aes.modyval.dispatcher.service.boundary;
 
 import edu.puj.aes.modyval.dispatcher.service.artifacts.ConsultarFacturaReq;
 import edu.puj.aes.modyval.dispatcher.service.artifacts.ConsultarFacturaResp;
+import edu.puj.aes.modyval.dispatcher.service.artifacts.EjecutarPagoReq;
 import edu.puj.aes.modyval.dispatcher.service.artifacts.IConsultarFactura;
-import edu.puj.aes.modyval.dispatcher.service.artifacts.rest.Factura;
 import edu.puj.aes.modyval.dispatcher.service.control.ConsultarFacturaRestService;
 import edu.puj.aes.modyval.dispatcher.service.control.ConsultarFacturaService;
 import javax.ejb.EJB;
@@ -37,6 +37,24 @@ public class ConsultarFactura implements IConsultarFactura {
             return consultarFacturaRestService.consultar(input);
         }
         return consultarFactura.consultar(input);
+    }
+
+    @Override
+    public ConsultarFacturaResp pagar(EjecutarPagoReq input) {
+        LOGGER.info("DispatcherService: {}", input);
+        if (input.getFactura().getIdFactura().startsWith("1")) {
+            return consultarFacturaRestService.pagar(input);
+        }
+        return consultarFactura.pagar(input);
+    }
+
+    @Override
+    public ConsultarFacturaResp compensar(EjecutarPagoReq input) {
+        LOGGER.info("DispatcherService: {}", input);
+        if (input.getFactura().getIdFactura().startsWith("1")) {
+            return consultarFacturaRestService.pagar(input);
+        }
+        return consultarFactura.pagar(input);
     }
 
 }

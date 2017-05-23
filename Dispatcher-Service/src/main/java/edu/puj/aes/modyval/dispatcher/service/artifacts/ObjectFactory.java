@@ -24,6 +24,7 @@ import javax.xml.namespace.QName;
 public class ObjectFactory {
 
     private final static QName _ConsultarFacturaResp_QNAME = new QName("http://www.modval.aes.puj.edu.co/consulta/schemas", "ConsultarFacturaResp");
+    private final static QName _EjecutarPagoReq_QNAME = new QName("http://www.modval.aes.puj.edu.co/consulta/schemas", "EjecutarPagoReq");
     private final static QName _ConsultarFacturaReq_QNAME = new QName("http://www.modval.aes.puj.edu.co/consulta/schemas", "ConsultarFacturaReq");
 
     /**
@@ -42,6 +43,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link EjecutarPagoReq }
+     * 
+     */
+    public EjecutarPagoReq createEjecutarPagoReq() {
+        return new EjecutarPagoReq();
+    }
+
+    /**
      * Create an instance of {@link ConsultarFacturaResp }
      * 
      */
@@ -56,6 +65,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://www.modval.aes.puj.edu.co/consulta/schemas", name = "ConsultarFacturaResp")
     public JAXBElement<ConsultarFacturaResp> createConsultarFacturaResp(ConsultarFacturaResp value) {
         return new JAXBElement<ConsultarFacturaResp>(_ConsultarFacturaResp_QNAME, ConsultarFacturaResp.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link EjecutarPagoReq }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://www.modval.aes.puj.edu.co/consulta/schemas", name = "EjecutarPagoReq")
+    public JAXBElement<EjecutarPagoReq> createEjecutarPagoReq(EjecutarPagoReq value) {
+        return new JAXBElement<EjecutarPagoReq>(_EjecutarPagoReq_QNAME, EjecutarPagoReq.class, null, value);
     }
 
     /**

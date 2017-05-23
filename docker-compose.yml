@@ -6,6 +6,8 @@ services:
       - "7073:8080"
     networks: 
       - "service-compose-net"
+    depends_on:
+      - ejecutar_pago_service
   dispatcher_service:
     build: "Dispatcher-Service/."
     ports:
@@ -14,6 +16,7 @@ services:
       - "service-compose-net"
     depends_on:
       - consultar_pago_service
+      - ejecutar_pago_service
   authentication_service:
     build: "Authentication-Service/."
     ports:
@@ -24,6 +27,12 @@ services:
     build: "Saldos-Service/."
     ports:
       - "7074:8080"
+    depends_on:
+      - ejecutar_pago_service
+  ejecutar_pago_service:
+    build: "Ejecutar-Pago/."
+    ports:
+      - "7075:8080"
     networks: 
       - "service-compose-net"
 networks:
