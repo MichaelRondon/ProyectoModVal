@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:aut="http://www.modval.aes.puj.edu.co/consulta/schemas"
+            elementFormDefault="qualified"
+            attributeFormDefault="qualified"
+            targetNamespace="http://www.modval.aes.puj.edu.co/consulta/schemas">
+    <xsd:element name="ConsultarFacturaReq" type="aut:ConsultarFacturaReq"/>
+    <xsd:element name="ConsultarFacturaResp" type="aut:ConsultarFacturaResp"/>
+    <xsd:complexType name="ConsultarFacturaReq">
+        <xsd:sequence>
+            <xsd:element name="idFactura" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="ConsultarFacturaResp">
+        <xsd:sequence>
+            <xsd:element name="idFactura" type="xsd:string"/>
+            <xsd:element name="valorFactura" type="xsd:double"/>
+            <xsd:element name="mensajeError" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>

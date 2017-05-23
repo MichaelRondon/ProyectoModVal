@@ -29,4 +29,28 @@ public interface IConsultarFactura {
         @WebParam(name = "Peticion", targetNamespace = "http://www.modval.aes.puj.edu.co/consulta/schemas", partName = "Input")
         ConsultarFacturaReq input);
     
+    /**
+     * 
+     * @param input
+     * @return
+     *     returns co.edu.javeriana.aes.modval.pagos.artifacts.ResultadoConsulta
+     */
+    @WebMethod(operationName = "Pagar", action = "pagar")
+    @WebResult(name = "Respuesta", targetNamespace = "http://www.modval.aes.puj.edu.co/consulta/schemas", partName = "Input")
+    public ConsultarFacturaResp pagar(
+        @WebParam(name = "Peticion", targetNamespace = "http://www.modval.aes.puj.edu.co/consulta/schemas", partName = "Input")
+        EjecutarPagoReq input);
+    
+    /**
+     * 
+     * @param input
+     * @return
+     *     returns co.edu.javeriana.aes.modval.pagos.artifacts.ResultadoConsulta
+     */
+    @WebMethod(operationName = "Compensar", action = "compensar")
+    @WebResult(name = "Respuesta", targetNamespace = "http://www.modval.aes.puj.edu.co/consulta/schemas", partName = "Input")
+    public ConsultarFacturaResp compensar(
+        @WebParam(name = "Peticion", targetNamespace = "http://www.modval.aes.puj.edu.co/consulta/schemas", partName = "Input")
+        EjecutarPagoReq input);
+    
 }

@@ -7,8 +7,7 @@ package edu.puj.aes.modyval.dispatcher.service.control;
 
 import edu.puj.aes.modyval.dispatcher.service.artifacts.ConsultarFacturaReq;
 import edu.puj.aes.modyval.dispatcher.service.artifacts.ConsultarFacturaResp;
-import edu.puj.aes.modyval.dispatcher.service.artifacts.rest.Factura;
-import edu.puj.aes.modyval.dispatcher.service.artifacts.rest.Resultado;
+import edu.puj.aes.modyval.dispatcher.service.artifacts.EjecutarPagoReq;
 import javax.ejb.Local;
 
 /**
@@ -21,7 +20,7 @@ public interface ConsultarFacturaRestService {
     
     ConsultarFacturaResp consultar(ConsultarFacturaReq consultarFacturaReq);
     
-    Resultado pagar(String idFactura, double valorFactura);
+    ConsultarFacturaResp pagar(EjecutarPagoReq input);
     
-    Resultado compensar(String idFactura);
+    ConsultarFacturaResp compensar(EjecutarPagoReq input);
 }
