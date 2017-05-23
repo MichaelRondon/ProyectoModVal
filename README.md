@@ -18,6 +18,6 @@ Desarrolladores:
   - Centralización de esquemas: Los servicios de <i>Consulta de Pagos</i> y del <i>Dispatcher</i> comparten el mismo esquema del contrato.
   - Contrato desacoplado y Centralización de contrato: Las implementaciones se realizarón sobre contratos definidos y abstractos.
   - Trasnformación de modelo de datos y Puente de protocolos: Esta transformación la realiza el servicio <i>Dispatcher</i>.
-  - Enrutamiento intermedio: El enrutamiento es realizado por el servicio <i>Consulta de Pagos</i>
+  - Enrutamiento intermedio: El enrutamiento es realizado por el servicio <i>Dispatcher</i>
 
 
