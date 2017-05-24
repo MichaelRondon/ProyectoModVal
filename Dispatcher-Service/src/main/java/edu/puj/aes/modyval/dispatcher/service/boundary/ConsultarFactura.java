@@ -32,7 +32,7 @@ public class ConsultarFactura implements IConsultarFactura {
 
     @Override
     public ConsultarFacturaResp consultar(ConsultarFacturaReq input) {
-        LOGGER.info("DispatcherService: {}", input);
+        LOGGER.info("DispatcherService. Factura id: {}", input.getIdFactura());
         if (input.getIdFactura().startsWith("1")) {
             return consultarFacturaRestService.consultar(input);
         }
@@ -41,7 +41,8 @@ public class ConsultarFactura implements IConsultarFactura {
 
     @Override
     public ConsultarFacturaResp pagar(EjecutarPagoReq input) {
-        LOGGER.info("DispatcherService: {}", input);
+        LOGGER.info("DispatcherService. Factura id: {}. Valor: {}",
+                input.getFactura().getIdFactura(), input.getValor());
         if (input.getFactura().getIdFactura().startsWith("1")) {
             return consultarFacturaRestService.pagar(input);
         }

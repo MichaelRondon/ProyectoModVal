@@ -28,7 +28,7 @@ public class ConsultarConvenio implements IConsultarConvenios {
     
     @Override
     public ConsultarFacturaResp consultar(ConsultarFacturaReq input) {
-        LOGGER.info("ConsultarPagoService: {}", input);
+        LOGGER.info("ConsultarPagoService. Factura id: {}", input.getIdFactura());
         return consultarConvenioService.consultar(input);
     }
     

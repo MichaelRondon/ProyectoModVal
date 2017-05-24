@@ -13,6 +13,7 @@ import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.Stateless;
+import org.slf4j.LoggerFactory;
 
 /**
  *
@@ -20,6 +21,8 @@ import javax.ejb.Stateless;
  */
 @Stateless
 public class ConsultarConvenioServiceImpl implements ConsultarConvenioService {
+
+    private static final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(ConsultarConvenioServiceImpl.class);
 
     @Override
     public ConsultarFacturaResp consultar(ConsultarFacturaReq consultarFacturaReq) {
@@ -31,8 +34,13 @@ public class ConsultarConvenioServiceImpl implements ConsultarConvenioService {
             consultarFacturaReq1.setIdFactura(consultarFacturaReq.getIdFactura());
             edu.puj.aes.modyval.consultar.pago.service.artifacts.wsdl.ConsultarFacturaResp consultar = consultarFacturaService.getConsultarFacturaPort().consultar(consultarFacturaReq1);
 
+            LOGGER.info("Respuesta consulta convenio. Factura Id: {}. Valor: {}. Mensaje de error: {}",
+                    consultarFacturaReq.getIdFactura(), consultar.getValorFactura(),
+                    consultar.getMensajeError());
+
             consultarFacturaResp.setIdFactura(consultarFacturaReq.getIdFactura());
             consultarFacturaResp.setValorFactura(consultar.getValorFactura());
+            consultarFacturaResp.setMensajeError(consultar.getMensajeError());
             return consultarFacturaResp;
         } catch (MalformedURLException ex) {
             String mensajeError = String.format("Error realizando la consulta de factura con los datos endpoint: %s, factura: %s, mensaje: %s",

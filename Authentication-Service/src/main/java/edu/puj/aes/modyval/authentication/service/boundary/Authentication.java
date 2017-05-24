@@ -28,7 +28,7 @@ public class Authentication implements AuthenticationInterface {
     
     @Override
     public AuthenticationResp autenticar(AuthenticationReq input) {
-        LOGGER.info("AuthenticationService: {}", input);
+        LOGGER.info("AuthenticationService. Login:{}", input.getLogin());
         return authenticationServiceImpl.autenticar(input);
     }
     

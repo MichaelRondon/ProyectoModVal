@@ -19,6 +19,6 @@ public interface SaldoService {
     
     public static final String WSDL_URI = "http://saldos_service:8080/saldos-service/SaldosService?wsdl";
 
-    ConsultarCuentasResp consultarCuenta(ConsultarCuentaReq authenticationReq);
-    ConsultarCuentasResp modificarCuenta(ModificarCuentaReq authenticationReq);
+    ConsultarCuentasResp consultarCuenta(ConsultarCuentaReq consultarCuentaReq);
+    ConsultarCuentasResp modificarCuenta(ModificarCuentaReq modificarCuentaReq);
 }

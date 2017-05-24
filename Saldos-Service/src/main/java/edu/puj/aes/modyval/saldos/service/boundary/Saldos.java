@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package edu.puj.aes.modyval.saldos.service.boundary;
 
 import edu.puj.aes.modyval.saldos.service.artifacts.ConsultarCuentaReq;
@@ -23,7 +18,7 @@ import org.slf4j.LoggerFactory;
  */
 @WebService(endpointInterface = "edu.puj.aes.modyval.saldos.service.artifacts.ISaldos")
 public class Saldos implements ISaldos {
-    
+
     private static final Logger LOGGER = LoggerFactory.getLogger(Saldos.class);
 
     @EJB
@@ -31,19 +26,22 @@ public class Saldos implements ISaldos {
 
     @Override
     public ConsultarSaldoResp consultar(ConsultarSaldoReq input) {
-        LOGGER.info("SaldosService: {}", input);
+        LOGGER.info("SaldosService. Usuario Id: {}", input.getUsuarioId());
         return saldoService.consultar(input);
     }
 
     @Override
     public ConsultarCuentasResp consultarCuenta(ConsultarCuentaReq input) {
-        LOGGER.info("SaldosService: {}", input);
+        LOGGER.info("SaldosService. Cuenta: {}. Usuario Id: {}", 
+                input.getNumero(), input.getUsuarioId());
         return saldoService.consultarCuenta(input);
     }
 
     @Override
     public ConsultarCuentasResp modificarCuenta(ModificarCuentaReq input) {
-        LOGGER.info("SaldosService: {}", input);
+        LOGGER.info("SaldosService. Cuenta: {}. Usuario Id: {}. Aumento: {}. Descuento: {}",
+                input.getNumero(), input.getUsuarioId(), input.getAumento(),
+                input.getDescuento());
         return saldoService.modificarCuenta(input);
     }
 }
