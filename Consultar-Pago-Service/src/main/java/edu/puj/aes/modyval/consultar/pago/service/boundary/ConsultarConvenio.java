@@ -7,7 +7,6 @@ package edu.puj.aes.modyval.consultar.pago.service.boundary;
 
 import edu.puj.aes.modyval.consultar.pago.service.artifacts.ConsultarFacturaReq;
 import edu.puj.aes.modyval.consultar.pago.service.artifacts.ConsultarFacturaResp;
-import edu.puj.aes.modyval.consultar.pago.service.artifacts.IConsultarConvenios;
 import edu.puj.aes.modyval.consultar.pago.service.control.ConsultarConvenioService;
 import javax.ejb.EJB;
 import javax.jws.WebService;
@@ -18,7 +17,7 @@ import org.slf4j.LoggerFactory;
  *
  * @author acost
  */
-@WebService(endpointInterface = "edu.puj.aes.modyval.consultar.pago.service.artifacts.IConsultarConvenios")
+@WebService(endpointInterface = "edu.puj.aes.modyval.consultar.pago.service.boundary.IConsultarConvenios")
 public class ConsultarConvenio implements IConsultarConvenios {
     
     private static final Logger LOGGER = LoggerFactory.getLogger(ConsultarConvenio.class);

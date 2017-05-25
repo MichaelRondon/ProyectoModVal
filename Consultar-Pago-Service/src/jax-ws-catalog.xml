@@ -3,4 +3,8 @@
     <system systemId="http://192.168.99.100:7072/dispatcher-service/ConsultarFacturaService?wsdl" uri="wsdl/192.168.99.100_7072/dispatcher-service/ConsultarFacturaService.wsdl"/>
     <system systemId="http://192.168.99.100:7072/dispatcher-service/ConsultarFacturaService?wsdl=1" uri="wsdl/192.168.99.100_7072/dispatcher-service/ConsultarFacturaService.wsdl_1.wsdl"/>
     <system systemId="http://192.168.99.100:7072/dispatcher-service/ConsultarFacturaService?xsd=1" uri="wsdl/192.168.99.100_7072/dispatcher-service/ConsultarFacturaService.xsd_1.xsd"/>
+    <system systemId="file:/C:/Users/acost/OneDrive/Documentos/NetBeansProjects/ProyectoModVal/wsdl/ConsultarFacturaService.wsdl" uri="wsdl/ConsultarFacturaService.wsdl"/>
+    <system systemId="http://localhost:8080/Dispatcher-Service/ConsultarFacturaService?wsdl" uri="wsdl/localhost_8080/Dispatcher-Service/ConsultarFacturaService.wsdl"/>
+    <system systemId="http://localhost:8080/Dispatcher-Service/ConsultarFacturaService?wsdl=1" uri="wsdl/localhost_8080/Dispatcher-Service/ConsultarFacturaService.wsdl_1.wsdl"/>
+    <system systemId="http://localhost:8080/Dispatcher-Service/ConsultarFacturaService?xsd=1" uri="wsdl/localhost_8080/Dispatcher-Service/ConsultarFacturaService.xsd_1.xsd"/>
 </catalog>

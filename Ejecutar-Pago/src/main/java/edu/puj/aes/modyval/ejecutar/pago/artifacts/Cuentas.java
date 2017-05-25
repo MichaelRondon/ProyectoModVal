@@ -18,7 +18,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element ref="{http://www.modval.aes.puj.edu.co/consulta/schemas}ConsultarCuentasResp" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element ref="{http://www.modval.aes.puj.edu.co/modyval/schemas}ConsultarCuentasResp" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>

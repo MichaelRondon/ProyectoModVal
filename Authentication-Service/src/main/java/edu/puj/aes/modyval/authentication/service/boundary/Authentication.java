@@ -5,7 +5,6 @@
  */
 package edu.puj.aes.modyval.authentication.service.boundary;
 
-import edu.puj.aes.modyval.authentication.service.artifacts.AuthenticationInterface;
 import edu.puj.aes.modyval.authentication.service.artifacts.AuthenticationReq;
 import edu.puj.aes.modyval.authentication.service.artifacts.AuthenticationResp;
 import edu.puj.aes.modyval.authentication.service.control.AuthenticationService;
@@ -18,7 +17,7 @@ import org.slf4j.LoggerFactory;
  *
  * @author acost
  */
-@WebService(endpointInterface = "edu.puj.aes.modyval.authentication.service.artifacts.AuthenticationInterface")
+@WebService(endpointInterface = "edu.puj.aes.modyval.authentication.service.boundary.AuthenticationInterface")
 public class Authentication implements AuthenticationInterface {
     
     private static final Logger LOGGER = LoggerFactory.getLogger(Authentication.class);

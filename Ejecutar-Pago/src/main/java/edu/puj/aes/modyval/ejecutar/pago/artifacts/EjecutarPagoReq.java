@@ -16,8 +16,8 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="factura" type="{http://www.modval.aes.puj.edu.co/consulta/schemas}ConsultarFacturaReq"/>
- *         &lt;element name="cuenta" type="{http://www.modval.aes.puj.edu.co/consulta/schemas}ConsultarCuentaReq"/>
+ *         &lt;element name="factura" type="{http://www.modval.aes.puj.edu.co/modyval/schemas}ConsultarFacturaReq"/>
+ *         &lt;element name="cuenta" type="{http://www.modval.aes.puj.edu.co/modyval/schemas}ConsultarCuentaReq"/>
  *         &lt;element name="valor" type="{http://www.w3.org/2001/XMLSchema}double"/>
  *       &lt;/sequence>
  *     &lt;/restriction>

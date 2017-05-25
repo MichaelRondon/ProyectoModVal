@@ -1,8 +1,8 @@
 //
-// Este archivo ha sido generado por la arquitectura JavaTM para la implantaciï¿½n de la referencia de enlace (JAXB) XML v2.2.8-b130911.1802 
+// Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.2.8-b130911.1802 
 // Visite <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
-// Todas las modificaciones realizadas en este archivo se perderï¿½n si se vuelve a compilar el esquema de origen. 
-// Generado el: 2017.05.22 a las 05:10:30 PM COT 
+// Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
+// Generado el: 2017.05.24 a las 08:23:07 PM COT 
 //
 
 
@@ -24,9 +24,10 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="cuentas" type="{http://www.modval.aes.puj.edu.co/saldo/schemas}Cuentas"/>
+ *         &lt;element name="cuentas" type="{http://www.modval.aes.puj.edu.co/modyval/schemas}Cuentas"/>
  *         &lt;element name="usuarioId" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="mensajeError" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="codigoError" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -39,7 +40,8 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "ConsultarSaldoResp", propOrder = {
     "cuentas",
     "usuarioId",
-    "mensajeError"
+    "mensajeError",
+    "codigoError"
 })
 public class ConsultarSaldoResp {
 
@@ -49,6 +51,8 @@ public class ConsultarSaldoResp {
     protected String usuarioId;
     @XmlElement(required = true)
     protected String mensajeError;
+    @XmlElement(required = true)
+    protected String codigoError;
 
     /**
      * Obtiene el valor de la propiedad cuentas.
@@ -120,6 +124,30 @@ public class ConsultarSaldoResp {
      */
     public void setMensajeError(String value) {
         this.mensajeError = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad codigoError.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getCodigoError() {
+        return codigoError;
+    }
+
+    /**
+     * Define el valor de la propiedad codigoError.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setCodigoError(String value) {
+        this.codigoError = value;
     }
 
 }

@@ -4,7 +4,6 @@ import edu.puj.aes.modyval.saldos.service.artifacts.ConsultarCuentaReq;
 import edu.puj.aes.modyval.saldos.service.artifacts.ConsultarCuentasResp;
 import edu.puj.aes.modyval.saldos.service.artifacts.ConsultarSaldoReq;
 import edu.puj.aes.modyval.saldos.service.artifacts.ConsultarSaldoResp;
-import edu.puj.aes.modyval.saldos.service.artifacts.ISaldos;
 import edu.puj.aes.modyval.saldos.service.artifacts.ModificarCuentaReq;
 import edu.puj.aes.modyval.saldos.service.control.SaldoService;
 import javax.ejb.EJB;
@@ -16,7 +15,7 @@ import org.slf4j.LoggerFactory;
  *
  * @author acost
  */
-@WebService(endpointInterface = "edu.puj.aes.modyval.saldos.service.artifacts.ISaldos")
+@WebService(endpointInterface = "edu.puj.aes.modyval.saldos.service.boundary.ISaldos")
 public class Saldos implements ISaldos {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Saldos.class);
@@ -41,6 +40,9 @@ public class Saldos implements ISaldos {
     public ConsultarCuentasResp modificarCuenta(ModificarCuentaReq input) {
         LOGGER.info("SaldosService. Cuenta: {}. Usuario Id: {}. Aumento: {}. Descuento: {}",
                 input.getNumero(), input.getUsuarioId(), input.getAumento(),
+                input.getDescuento());
+        System.out.println("SaldosService. Cuenta: {}. Usuario Id: {}. Aumento: {}. Descuento: {}"+
+                input.getNumero()+ input.getUsuarioId()+ input.getAumento()+
                 input.getDescuento());
         return saldoService.modificarCuenta(input);
     }
