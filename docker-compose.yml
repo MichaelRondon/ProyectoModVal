@@ -27,6 +27,8 @@ services:
     build: "Saldos-Service/."
     ports:
       - "7074:8080"
+    networks: 
+      - "service-compose-net"
     depends_on:
       - ejecutar_pago_service
   ejecutar_pago_service:

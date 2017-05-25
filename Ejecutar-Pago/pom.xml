@@ -30,6 +30,12 @@
             <version>7.0</version>
             <scope>provided</scope>
         </dependency>
+	<dependency>
+		<groupId>org.projectlombok</groupId>
+		<artifactId>lombok</artifactId>
+		<version>1.16.16</version>
+		<scope>provided</scope>
+	</dependency>
     </dependencies>
 
     <build>
@@ -56,6 +62,14 @@
                         <resource>
                             <directory>src</directory>
                             <targetPath>WEB-INF</targetPath>
+                            <includes>
+                                <include>jax-ws-catalog.xml</include>
+                                <include>wsdl/**</include>
+                            </includes>
+                        </resource>
+                        <resource>
+                            <directory>src</directory>
+                            <targetPath>WEB-INF/classes/META-INF</targetPath>
                             <includes>
                                 <include>jax-ws-catalog.xml</include>
                                 <include>wsdl/**</include>
@@ -102,7 +116,7 @@
                             <wsdlFiles>
                                 <wsdlFile>localhost_8080/Consultar-Pago-Service/ConsultarConvenioService.wsdl</wsdlFile>
                             </wsdlFiles>
-                            <packageName>edu.puj.aes.modyval.ejecutar.pago.artifacts.consulta.wsdl</packageName>
+                            <packageName>edu.puj.aes.modyval.ejecutar.pago.remote.artifacts.consulta.wsdl</packageName>
                             <vmArgs>
                                 <vmArg>-Djavax.xml.accessExternalSchema=all</vmArg>
                             </vmArgs>
@@ -118,16 +132,16 @@
                         </goals>
                         <configuration>
                             <wsdlFiles>
-                                <wsdlFile>localhost_8080/Dispatcher-Service/ConsultarFacturaService.wsdl</wsdlFile>
+                                <wsdlFile>localhost_8080/Saldos-Service/SaldosService.wsdl</wsdlFile>
                             </wsdlFiles>
-                            <packageName>edu.puj.aes.modyval.ejecutar.pago.artifacts.dispatcher.wsdl</packageName>
+                            <packageName>edu.puj.aes.modyval.ejecutar.pago.remote.artifacts.saldos.wsdl</packageName>
                             <vmArgs>
                                 <vmArg>-Djavax.xml.accessExternalSchema=all</vmArg>
                             </vmArgs>
-                            <wsdlLocation>http://localhost:8080/Dispatcher-Service/ConsultarFacturaService?wsdl</wsdlLocation>
-                            <staleFile>${project.build.directory}/jaxws/stale/ConsultarFacturaService.stale</staleFile>
+                            <wsdlLocation>http://localhost:8080/Saldos-Service/SaldosService?wsdl</wsdlLocation>
+                            <staleFile>${project.build.directory}/jaxws/stale/SaldosService.stale</staleFile>
                         </configuration>
-                        <id>wsimport-generate-ConsultarFacturaService</id>
+                        <id>wsimport-generate-SaldosService</id>
                         <phase>generate-sources</phase>
                     </execution>
                     <execution>
@@ -136,16 +150,16 @@
                         </goals>
                         <configuration>
                             <wsdlFiles>
-                                <wsdlFile>localhost_8080/Saldos-Service/SaldosService.wsdl</wsdlFile>
+                                <wsdlFile>localhost_8080/Dispatcher-Service/ConsultarFacturaService.wsdl</wsdlFile>
                             </wsdlFiles>
-                            <packageName>edu.puj.aes.modyval.ejecutar.pago.artifacts.saldos.wsdl</packageName>
+                            <packageName>edu.puj.aes.modyval.ejecutar.pago.remote.artifacts.dispatcher.wsdl</packageName>
                             <vmArgs>
                                 <vmArg>-Djavax.xml.accessExternalSchema=all</vmArg>
                             </vmArgs>
-                            <wsdlLocation>http://localhost:8080/Saldos-Service/SaldosService?wsdl</wsdlLocation>
-                            <staleFile>${project.build.directory}/jaxws/stale/SaldosService.stale</staleFile>
+                            <wsdlLocation>http://localhost:8080/Dispatcher-Service/ConsultarFacturaService?wsdl</wsdlLocation>
+                            <staleFile>${project.build.directory}/jaxws/stale/ConsultarFacturaService.stale</staleFile>
                         </configuration>
-                        <id>wsimport-generate-SaldosService</id>
+                        <id>wsimport-generate-ConsultarFacturaService</id>
                         <phase>generate-sources</phase>
                     </execution>
                 </executions>

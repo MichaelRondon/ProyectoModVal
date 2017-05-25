@@ -7,12 +7,12 @@ package edu.puj.aes.modyval.consultar.pago.service.control;
 
 import edu.puj.aes.modyval.consultar.pago.service.artifacts.ConsultarFacturaReq;
 import edu.puj.aes.modyval.consultar.pago.service.artifacts.ConsultarFacturaResp;
-import edu.puj.aes.modyval.consultar.pago.service.artifacts.wsdl.ConsultarFacturaService;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.Stateless;
+import org.slf4j.LoggerFactory;
 
 /**
  *
@@ -21,18 +21,26 @@ import javax.ejb.Stateless;
 @Stateless
 public class ConsultarConvenioServiceImpl implements ConsultarConvenioService {
 
+    private static final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(ConsultarConvenioServiceImpl.class);
+
     @Override
     public ConsultarFacturaResp consultar(ConsultarFacturaReq consultarFacturaReq) {
         ConsultarFacturaResp consultarFacturaResp = new ConsultarFacturaResp();
         try {
-            ConsultarFacturaService consultarFacturaService = new ConsultarFacturaService(new URL(ConsultarConvenioService.WSDL_URI));
-            edu.puj.aes.modyval.consultar.pago.service.artifacts.wsdl.ConsultarFacturaReq consultarFacturaReq1
-                    = new edu.puj.aes.modyval.consultar.pago.service.artifacts.wsdl.ConsultarFacturaReq();
+            edu.puj.aes.modyval.consultar.pago.service.remote.artifacts.wsdl.ConsultarFacturaService consultarFacturaService = 
+                    new edu.puj.aes.modyval.consultar.pago.service.remote.artifacts.wsdl.ConsultarFacturaService(new URL(ConsultarConvenioService.WSDL_URI));
+            edu.puj.aes.modyval.consultar.pago.service.remote.artifacts.wsdl.ConsultarFacturaReq consultarFacturaReq1
+                    = new edu.puj.aes.modyval.consultar.pago.service.remote.artifacts.wsdl.ConsultarFacturaReq();
             consultarFacturaReq1.setIdFactura(consultarFacturaReq.getIdFactura());
-            edu.puj.aes.modyval.consultar.pago.service.artifacts.wsdl.ConsultarFacturaResp consultar = consultarFacturaService.getConsultarFacturaPort().consultar(consultarFacturaReq1);
+            edu.puj.aes.modyval.consultar.pago.service.remote.artifacts.wsdl.ConsultarFacturaResp consultar = consultarFacturaService.getConsultarFacturaPort().consultar(consultarFacturaReq1);
+
+            LOGGER.info("Respuesta consulta convenio. Factura Id: {}. Valor: {}. Mensaje de error: {}",
+                    consultarFacturaReq.getIdFactura(), consultar.getValorFactura(),
+                    consultar.getMensajeError());
 
             consultarFacturaResp.setIdFactura(consultarFacturaReq.getIdFactura());
             consultarFacturaResp.setValorFactura(consultar.getValorFactura());
+            consultarFacturaResp.setMensajeError(consultar.getMensajeError());
             return consultarFacturaResp;
         } catch (MalformedURLException ex) {
             String mensajeError = String.format("Error realizando la consulta de factura con los datos endpoint: %s, factura: %s, mensaje: %s",

@@ -19,6 +19,7 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="idFactura" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="valorFactura" type="{http://www.w3.org/2001/XMLSchema}double"/>
  *         &lt;element name="mensajeError" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="codigoError" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -31,7 +32,8 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "ConsultarFacturaResp", propOrder = {
     "idFactura",
     "valorFactura",
-    "mensajeError"
+    "mensajeError",
+    "codigoError"
 })
 public class ConsultarFacturaResp {
 
@@ -40,6 +42,8 @@ public class ConsultarFacturaResp {
     protected double valorFactura;
     @XmlElement(required = true)
     protected String mensajeError;
+    @XmlElement(required = true)
+    protected String codigoError;
 
     /**
      * Obtiene el valor de la propiedad idFactura.
@@ -103,6 +107,30 @@ public class ConsultarFacturaResp {
      */
     public void setMensajeError(String value) {
         this.mensajeError = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad codigoError.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getCodigoError() {
+        return codigoError;
+    }
+
+    /**
+     * Define el valor de la propiedad codigoError.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setCodigoError(String value) {
+        this.codigoError = value;
     }
 
 }

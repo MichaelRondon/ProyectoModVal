@@ -8,7 +8,6 @@ package edu.puj.aes.modyval.dispatcher.service.boundary;
 import edu.puj.aes.modyval.dispatcher.service.artifacts.ConsultarFacturaReq;
 import edu.puj.aes.modyval.dispatcher.service.artifacts.ConsultarFacturaResp;
 import edu.puj.aes.modyval.dispatcher.service.artifacts.EjecutarPagoReq;
-import edu.puj.aes.modyval.dispatcher.service.artifacts.IConsultarFactura;
 import edu.puj.aes.modyval.dispatcher.service.control.ConsultarFacturaRestService;
 import edu.puj.aes.modyval.dispatcher.service.control.ConsultarFacturaService;
 import javax.ejb.EJB;
@@ -20,7 +19,7 @@ import org.slf4j.LoggerFactory;
  *
  * @author acost
  */
-@WebService(endpointInterface = "edu.puj.aes.modyval.dispatcher.service.artifacts.IConsultarFactura")
+@WebService(endpointInterface = "edu.puj.aes.modyval.dispatcher.service.boundary.IConsultarFactura")
 public class ConsultarFactura implements IConsultarFactura {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ConsultarFactura.class);
@@ -32,7 +31,7 @@ public class ConsultarFactura implements IConsultarFactura {
 
     @Override
     public ConsultarFacturaResp consultar(ConsultarFacturaReq input) {
-        LOGGER.info("DispatcherService: {}", input);
+        LOGGER.info("DispatcherService. Factura id: {}", input.getIdFactura());
         if (input.getIdFactura().startsWith("1")) {
             return consultarFacturaRestService.consultar(input);
         }
@@ -41,7 +40,8 @@ public class ConsultarFactura implements IConsultarFactura {
 
     @Override
     public ConsultarFacturaResp pagar(EjecutarPagoReq input) {
-        LOGGER.info("DispatcherService: {}", input);
+        LOGGER.info("DispatcherService. Factura id: {}. Valor: {}",
+                input.getFactura().getIdFactura(), input.getValor());
         if (input.getFactura().getIdFactura().startsWith("1")) {
             return consultarFacturaRestService.pagar(input);
         }

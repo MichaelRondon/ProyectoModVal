@@ -8,16 +8,17 @@ package edu.puj.aes.modyval.dispatcher.service.control;
 import edu.puj.aes.modyval.dispatcher.service.artifacts.ConsultarFacturaReq;
 import edu.puj.aes.modyval.dispatcher.service.artifacts.ConsultarFacturaResp;
 import edu.puj.aes.modyval.dispatcher.service.artifacts.EjecutarPagoReq;
-import edu.puj.aes.modyval.dispatcher.service.artifacts.wsdl.PagosServiceService;
-import edu.puj.aes.modyval.dispatcher.service.artifacts.wsdl.ReferenciaFactura;
-import edu.puj.aes.modyval.dispatcher.service.artifacts.wsdl.Pago;
-import edu.puj.aes.modyval.dispatcher.service.artifacts.wsdl.Resultado;
-import edu.puj.aes.modyval.dispatcher.service.artifacts.wsdl.ResultadoConsulta;
+import edu.puj.aes.modyval.dispatcher.service.remote.wsdl.Pago;
+import edu.puj.aes.modyval.dispatcher.service.remote.wsdl.PagosServiceService;
+import edu.puj.aes.modyval.dispatcher.service.remote.wsdl.ReferenciaFactura;
+import edu.puj.aes.modyval.dispatcher.service.remote.wsdl.Resultado;
+import edu.puj.aes.modyval.dispatcher.service.remote.wsdl.ResultadoConsulta;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.Stateless;
+import org.slf4j.LoggerFactory;
 
 /**
  *
@@ -25,6 +26,8 @@ import javax.ejb.Stateless;
  */
 @Stateless
 public class ConsultarFacturaServiceImpl implements ConsultarFacturaService {
+
+    private static final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(ConsultarFacturaServiceImpl.class);
 
     @Override
     public ConsultarFacturaResp consultar(ConsultarFacturaReq consultarFacturaReq) {
@@ -35,7 +38,7 @@ public class ConsultarFacturaServiceImpl implements ConsultarFacturaService {
             ResultadoConsulta resultadoConsulta = pagosServiceService
                     .getPagosServicePort()
                     .cosultar(buildReferenciaFactura(consultarFacturaReq));
-            System.out.println("cosultar: " + resultadoConsulta.getTotalPagar());
+            LOGGER.info("cosultar: {}", resultadoConsulta.getTotalPagar());
             consultarFacturaResp.setValorFactura(resultadoConsulta.getTotalPagar());
             consultarFacturaResp.setIdFactura(resultadoConsulta.getReferenciaFactura().getReferenciaFactura());
             return consultarFacturaResp;
