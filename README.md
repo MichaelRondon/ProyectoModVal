@@ -13,6 +13,7 @@ Desarrolladores:
   
 <b>Patrones implementados:</b>
 
+  - Inventario de dominio: Los servicios de pagos del banco están identificados y se registran en un servidor WSO2.
   - Normalización de servicios: Los servicios implementados se concibieron para que tuvieran responsabilidades independientes.
   - Abstracción de entidad: Por ejemplo se modela el <i>Servicio de Saldos</i> como una entidad que se compone de un conunto de cuentas asociadas a un identificador de usuario.
   - Centralización de esquemas: Los esquemas están centralizados en el docuemnto <i>schemas.xsd</i> y mediante la ejecución del script <i>crearEntidadesJaxb.bat</i> se generan las clases alli definidas. Además varios servicios comparten entidades definidas en este esquema, por ejempolo los servicios de <i>Consulta de Pagos</i> y del <i>Dispatcher</i> comparten el mismo esquema del contrato.
