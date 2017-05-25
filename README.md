@@ -19,5 +19,7 @@ Desarrolladores:
   - Contrato desacoplado y Centralización de contrato: Las implementaciones se realizarón sobre contratos definidos y abstractos.
   - Trasnformación de modelo de datos y Puente de protocolos: Esta transformación la realiza el servicio <i>Dispatcher</i>.
   - Enrutamiento intermedio: El enrutamiento es realizado por el servicio <i>Dispatcher</i>
+  - Transacción Atómica: El servicio de <i>Ejecutar Pago</i> gestiona la transacción de pago invocando a otros servicios y gestionando las compensaciones.
+  - Compensación de transacciones: Tanto los servicios externos consumidos por el servicio de  <i>Dispatcher</i> como la transacción de modificación de saldos del <i>Servicio de Saldos</i> implementan operaciones de compensación.
 
 
