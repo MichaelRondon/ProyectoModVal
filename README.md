@@ -34,3 +34,18 @@ Hay dos composiciones:
 	2.3. Ejecuta el pago mediante el servicio de <b><i>Dispatcher</i></b> que a su vez consume los servicios externos.
 	2.4. Si hay time-out en la ejecución del pago (408 - Request Timeout) envia la compensación del pago  mediante el servicio de <b><i>Dispatcher</i></b>
 	2.5. Si hay problemas en la respuesta de la ejecución del pago envía la compensación del saldo mediante el <b><i>Servicio de Saldos</i></b>
+	
+
+<b>Requisitos de ejecución:</b>
+
+Para que funcione el servicio <b><i>Dispatcher</i></b> implementado es necesario ejecutar el archivo start.sh del proyecto:
+https://github.com/germansua/UJaveriana-AES-ModVal/tree/master/Workshop1
+
+Adicionalmente se debe ejecutar el proyecto: 
+W1-REST-Service-SpringBoot
+
+Los endpoit del servicio <b><i>Dispatcher</i></b> se pueden verificar en las clases:  
+
+	- edu.puj.aes.modyval.dispatcher.service.control.ConsultarFacturaRestService 
+	- edu.puj.aes.modyval.dispatcher.service.control.ConsultarFacturaService
+
