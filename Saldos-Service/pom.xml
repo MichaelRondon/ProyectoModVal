@@ -23,6 +23,12 @@
             <type>jar</type>
         </dependency>
         <dependency>
+            <groupId>edu.puj.aes.patsoft</groupId>
+            <artifactId>Fast-Projects-Utils</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-web-api</artifactId>
             <version>7.0</version>

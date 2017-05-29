@@ -11,10 +11,15 @@ import edu.puj.aes.modyval.saldos.service.artifacts.ConsultarSaldoReq;
 import edu.puj.aes.modyval.saldos.service.artifacts.ConsultarSaldoResp;
 import edu.puj.aes.modyval.saldos.service.artifacts.Cuentas;
 import edu.puj.aes.modyval.saldos.service.artifacts.ModificarCuentaReq;
+import edu.puj.aes.patsoft.fast.projects.utils.FilePersister;
 import java.math.BigDecimal;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
+import java.util.Set;
 import javax.annotation.PostConstruct;
 import javax.ejb.Stateless;
 import org.slf4j.Logger;
@@ -27,31 +32,41 @@ import org.slf4j.LoggerFactory;
 @Stateless
 public class SaldoServiceImpl implements SaldoService {
 
+    private static final FilePersister FILE_PERSISTER
+            = new FilePersister("persistence/saldos/service");
+
+    private static final String FILE_NAME = "MAPA_CUENTAS_USUARIOS";
+
     private static final Logger LOGGER = LoggerFactory.getLogger(SaldoServiceImpl.class);
     private static final Map<String, Map<String, BigDecimal>> MAPA_CUENTAS_USUARIOS = new HashMap<>();
 
     @PostConstruct
     public void init() {
-        Map<String, BigDecimal> cuentas = new HashMap<>();
-        cuentas.put("123456789", new BigDecimal(500000.0));
-        cuentas.put("123456790", new BigDecimal(1000000.0));
-        MAPA_CUENTAS_USUARIOS.put("0001", cuentas);
-        cuentas = new HashMap<>();
-        cuentas.put("123456791", new BigDecimal(500000.0));
-        cuentas.put("123456792", new BigDecimal(1000000.0));
-        MAPA_CUENTAS_USUARIOS.put("0002", cuentas);
-        cuentas = new HashMap<>();
-        cuentas.put("123456793", new BigDecimal(500000.0));
-        cuentas.put("123456794", new BigDecimal(1000000.0));
-        MAPA_CUENTAS_USUARIOS.put("0003", cuentas);
-        cuentas = new HashMap<>();
-        cuentas.put("123456795", new BigDecimal(500000.0));
-        cuentas.put("123456796", new BigDecimal(1000000.0));
-        MAPA_CUENTAS_USUARIOS.put("0004", cuentas);
-        cuentas = new HashMap<>();
-        cuentas.put("123456797", new BigDecimal(500000.0));
-        cuentas.put("123456798", new BigDecimal(1000000.0));
-        MAPA_CUENTAS_USUARIOS.put("0005", cuentas);
+        cargar();
+        if (MAPA_CUENTAS_USUARIOS.isEmpty()) {
+            Random random = new Random();
+            Map<String, BigDecimal> cuentas = new HashMap<>();
+            cuentas.put("123456789", new BigDecimal(random.nextInt(10000000)));
+            cuentas.put("123456790", new BigDecimal(random.nextInt(10000000)));
+            MAPA_CUENTAS_USUARIOS.put("987654321", cuentas);
+            cuentas = new HashMap<>();
+            cuentas.put("123456791", new BigDecimal(random.nextInt(10000000)));
+            cuentas.put("123456792", new BigDecimal(random.nextInt(10000000)));
+            MAPA_CUENTAS_USUARIOS.put("987654322", cuentas);
+            cuentas = new HashMap<>();
+            cuentas.put("123456793", new BigDecimal(random.nextInt(10000000)));
+            cuentas.put("123456794", new BigDecimal(random.nextInt(10000000)));
+            MAPA_CUENTAS_USUARIOS.put("987654323", cuentas);
+            cuentas = new HashMap<>();
+            cuentas.put("123456795", new BigDecimal(random.nextInt(10000000)));
+            cuentas.put("123456796", new BigDecimal(random.nextInt(10000000)));
+            MAPA_CUENTAS_USUARIOS.put("987654324", cuentas);
+            cuentas = new HashMap<>();
+            cuentas.put("123456797", new BigDecimal(random.nextInt(10000000)));
+            cuentas.put("123456798", new BigDecimal(random.nextInt(10000000)));
+            MAPA_CUENTAS_USUARIOS.put("987654325", cuentas);
+        }
+
     }
 
     @Override
@@ -98,6 +113,7 @@ public class SaldoServiceImpl implements SaldoService {
         }
         asignarNuevoSaldo(usuarioId, numero, nuevoSaldo);
         consultarCuentasResp.setSaldo(nuevoSaldo);
+        guardar();
         return consultarCuentasResp;
     }
 
@@ -105,6 +121,32 @@ public class SaldoServiceImpl implements SaldoService {
         Map<String, BigDecimal> cuentas = MAPA_CUENTAS_USUARIOS.get(usuarioId);
         if (cuentas != null) {
             cuentas.put(numero, new BigDecimal(nuevoSaldo));
+        }
+    }
+
+    private synchronized void cargar() {
+        HashMap cargar = FILE_PERSISTER.cargar(FILE_NAME, HashMap.class);
+        if (cargar != null && !cargar.isEmpty()) {
+            MAPA_CUENTAS_USUARIOS.clear();
+            Set entrySet = cargar.entrySet();
+            entrySet.forEach(entry
+                    -> MAPA_CUENTAS_USUARIOS.put((String) ((Map.Entry) entry).getKey(),
+                            getMapWIthBigDecimal((Map) ((Map.Entry) entry).getValue())));
+        }
+    }
+
+    private Map<String, BigDecimal> getMapWIthBigDecimal(Map objects) {
+        Map<String, BigDecimal> values = new HashMap<>();
+        objects.forEach((x, y) -> values.put((String) x,
+                new BigDecimal(String.valueOf(y))));
+        return values;
+    }
+
+    private synchronized void guardar() {
+        if (MAPA_CUENTAS_USUARIOS != null && !MAPA_CUENTAS_USUARIOS.isEmpty()) {
+            HashMap<String, Map<String, BigDecimal>> map = new HashMap<>();
+            MAPA_CUENTAS_USUARIOS.forEach((key, value) -> map.put(key, value));
+            FILE_PERSISTER.guardar(FILE_NAME, map);
         }
     }
 
