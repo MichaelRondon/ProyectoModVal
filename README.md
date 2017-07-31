@@ -5,11 +5,11 @@ Composición de servicios en Docker para la materia de Modela y validación de l
 
 Desarrolladores: 
   
-	David Camacho
-	Diego Sánchez
-	Felipe Grisales
-	Marcela Vaquiro
-	Michael Rondón
+	David Camacho	davidcinho89 
+	Diego Sánchez	dmsanchezr79
+	Felipe Grisales	
+	Marcela Vaquiro	marcevaquiro
+	Michael Rondón	MichaelRondon
   
 <b>Patrones implementados:</b>
 
